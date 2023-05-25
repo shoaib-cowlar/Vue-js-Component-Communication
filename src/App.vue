@@ -10,6 +10,7 @@
         :key="friend.id"
         :friend="friend"
         @toggle-favourite="toggleFavourite"
+        @delete="deleteContact"
       />
     </ul>
   </section>
@@ -47,6 +48,9 @@ export default {
     addFriend(data) {
       console.log(data);
       this.friends.push(data);
+    },
+    deleteContact(id) {
+      this.friends = this.friends.filter((f) => f.id !== id);
     },
   },
 };

@@ -19,7 +19,7 @@
 
 <script>
 export default {
-  emits: ["create-friend"],
+  emits: ["add-friend"],
   data() {
     return {
       id: "",
@@ -36,11 +36,7 @@ export default {
         email: this.email,
         phone: this.phone,
       };
-      this.$emit("create-friend", data);
-      this.id = "";
-      this.name = "";
-      this.phone = "";
-      this.email = "";
+      this.$emit("add-friend", data);
     },
   },
 };

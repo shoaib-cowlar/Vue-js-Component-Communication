@@ -15,6 +15,7 @@
         {{ friend.email }}
       </li>
     </ul>
+    <button @click="$emit('delete', friend.id)">Delete</button>
   </li>
 </template>
 
@@ -26,16 +27,8 @@ export default {
       required: true,
     },
   },
-  emits: {
-    "toggle-favourite": function (id) {
-      if (id) {
-        return true;
-      } else {
-        alert("id is missing for event");
-        return false;
-      }
-    },
-  },
+  emits: ["toggle-favourite", "delete"],
+
   data() {
     return {
       detailsAreVisible: false,
