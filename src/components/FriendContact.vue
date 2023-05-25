@@ -26,6 +26,16 @@ export default {
       required: true,
     },
   },
+  emits: {
+    "toggle-favourite": function (id) {
+      if (id) {
+        return true;
+      } else {
+        alert("id is missing for event");
+        return false;
+      }
+    },
+  },
   data() {
     return {
       detailsAreVisible: false,
@@ -36,7 +46,7 @@ export default {
       this.detailsAreVisible = !this.detailsAreVisible;
     },
     toggleFavourite() {
-      this.$emit("toggleFavourite", this.friend.id);
+      this.$emit("toggle-favourite", this.friend.id);
     },
   },
 };
