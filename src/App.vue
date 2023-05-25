@@ -8,7 +8,7 @@
         v-for="friend in friends"
         :key="friend.id"
         :friend="friend"
-        :favourite="isFavourite"
+        @toggle-favourite="toggleFavourite"
       />
     </ul>
   </section>
@@ -18,22 +18,31 @@
 export default {
   data() {
     return {
-      isFavourite: "true",
       friends: [
         {
           id: "manuel",
           name: "Manuel Lorenz",
           phone: "0123 45678 90",
           email: "manuel@localhost.com",
+          isFavourite: true,
         },
         {
           id: "julie",
           name: "Julie Jones",
           phone: "0987 654421 21",
           email: "julie@localhost.com",
+          isFavourite: true,
         },
       ],
     };
+  },
+  methods: {
+    toggleFavourite(id) {
+      const friend = this.friends.find((f) => f.id === id);
+      if (friend) {
+        friend.isFavourite = !friend.isFavourite;
+      }
+    },
   },
 };
 </script>
