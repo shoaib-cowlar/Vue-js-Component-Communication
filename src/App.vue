@@ -3,6 +3,7 @@
     <header>
       <h1>My Friends</h1>
     </header>
+    <new-friend @add-friend="addFriend"></new-friend>
     <ul>
       <friend-contact
         v-for="friend in friends"
@@ -42,6 +43,10 @@ export default {
       if (friend) {
         friend.isFavourite = !friend.isFavourite;
       }
+    },
+    addFriend(data) {
+      console.log(data);
+      this.friends.push(data);
     },
   },
 };
